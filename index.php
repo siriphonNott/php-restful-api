@@ -52,6 +52,9 @@ switch ($httpMethod) {
     $form = ['multipart/form-data', 'application/x-www-form-urlencoded'];
 
     if(in_array($contentType, $form)) {
+      //Add content-type 
+      $rest->setContentType('application/json');
+
       $input['username']  = $_POST['username'];
       $input['password'] = $_POST['password'];
       $body['data'] = $input;
