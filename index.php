@@ -6,9 +6,13 @@
   created At: 31/01/19
 */
 
-require('SimpleRest.php');
+//Set CORS
+header('Access-Control-Allow-Origin: *'); 
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Max-Age: 86400');
 
-header('Content-Type: text/plain');
+require('SimpleRest.php');
 
 //Get Request Http Method
 $httpMethod = $_SERVER['REQUEST_METHOD'];
