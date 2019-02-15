@@ -4,17 +4,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="./logo.png" type="image/x-icon" />
   <title>PHP API</title>
-</head>
-<body>
-  <h1>Home Page</h1>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 
+  <style type="text/css">
+  @import url(https://fonts.googleapis.com/css?family=Quicksand);
+  
+  h1, h2, h3, h4, h5, h6, a, span {
+    font-family: 'Quicksand', sans-serif;
+  }
+  .omise-checkout-button {
+    background-color: #225dc7;
+    padding: 5px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .omise-checkout-button:hover {
+    background-color: #3267c7;
+  }
+</style>
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+ .omise-checkout-button {
+    height: 50px;
+    font-size: 20px;
+    font-size: 20px;
+    width: 100%;
+  }
+   .omise-checkout-button.disabled, .omise-checkout-button.disabled:hover {
+      background-color: #225dc7b8;
+    }
+  .main {
+    text-align: center;
+  }
+  .bt {
+    width: 100%;
+    position: fixed;
+    bottom: 20%;
+  }
+  @media screen and (max-width: 414px) {
+    .omise-checkout-button {
+      font-size: 16px;
+    }
+  }
+</style>
+<body>
+  <div class="main">
+  <h1>Form Omise</h1>
+  <div class="bt">
+    <form class="checkout-form" name="checkoutForm" method="POST" action="index.php">
+        <input type="hidden" name="linkID" value="">
+        <input type="hidden" name="linkKey" value="">
+        <input type="hidden" name="token" value="">
 
-  <script>
+        <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+          data-key=""
+          data-amount=""
+          data-button-label="Next"
+          data-currency="THB",
+          data-image="https://pngimage.net/wp-content/uploads/2018/06/logo-n-png-2.png",
+          data-frame-label="NottDev",
+          data-frame-description="Developer Thailand",
+          data-submit-label="ชำระคอสออนไลน์",
+          data-location="no",
+          data-locale="th" >
+     
+        </script>
+        <script type="text/javascript" >
+    
+        </script>
+      </form>
+    </div>
+</div>
+
+
+<!--   <script>
     $.ajax({
       url: `https://php-restful-api.herokuapp.com/`,
       method: "GET",
@@ -23,6 +94,18 @@
         console.log(res);
       }
     });
+  </script> -->
+  <script>
+
+ let omiseCheckoutBtn = $(".omise-checkout-button");
+   omiseCheckoutBtn.on('click', ()=>{
+    omiseCheckoutBtn.prop('disabled', true);
+    omiseCheckoutBtn.addClass('disabled');
+    omiseCheckoutBtn.text('Processing');
+   });
+   
+  
+
   </script>
 </body>
 </html>
